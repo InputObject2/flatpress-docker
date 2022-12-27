@@ -16,3 +16,6 @@ deployment:
     prometheus.io/port: "8080"
   tolerations: []
   image: ghcr.io/inputobject2/flatpress-docker:latest
+
+service:
+  name: flatpress
