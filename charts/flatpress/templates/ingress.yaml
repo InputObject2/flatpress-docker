@@ -1,0 +1,23 @@
+{{- if .Values.ingress.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: flatpress-ingress
+  annotations:
+{{- range $key, $value := .Values.ingress.annotations }}
+    {{ $key }}: {{ $value }}
+{{- end }}
+spec:
+  tls:
+  - hosts:
+    - {{ .Values.ingress.hostname }}
+    secretName: flatpress-tls-secret
+  rules:
+  - host: {{ .Values.ingress.hostname }}
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: flatpress
+          servicePort: 8080
+{{- end }}
