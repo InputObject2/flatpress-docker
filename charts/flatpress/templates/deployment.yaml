@@ -40,10 +40,14 @@ spec:
         image: {{ .Values.deployment.image }}
         ports:
         - containerPort: 8080
+        {{- if .Values.persistence.enabled }}
         volumeMounts:
         - name: fp-content
           mountPath: /var/www/html/fp-content
+        {{- end }}
+      {{- if .Values.persistence.enabled }}
       volumes:
       - name: fp-content
         persistentVolumeClaim:
           claimName: fp-content-pvc
+      {{- end }}

@@ -19,3 +19,6 @@ deployment:
 
 service:
   name: flatpress
+
+persistence:
+  enabled: true
