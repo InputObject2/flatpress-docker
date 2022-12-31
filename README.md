@@ -12,13 +12,13 @@ This Helm chart deploys the Flatpress web application in Kubernetes.
 To install the chart from a Helm repository, add the repository to your Helm installation:
 
 ```bash
-helm repo add charts.example.com https://charts.example.com
+helm repo add flatpress https://inputobject2.github.io/flatpress-docker
 ```
 
 Then, to install the chart with the release name flatpress, use the following command:
 
 ```bash
-helm install flatpress charts.example.com/flatpress
+helm install flatpress flatpress/flatpress
 ```
 
 This will create a Deployment and a Service to expose the Flatpress application, as well as a PersistentVolumeClaim to persist the fp-content data.
@@ -43,13 +43,13 @@ The following table lists the configurable parameters of the Flatpress chart and
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example, to specify the number of replicas and the hostname for the Ingress resource:
 
 ```bash
-helm install flatpress charts.example.com/flatpress --set deployment.replicas=5,ingress.hostname=flatpress.mydomain.com
+helm install flatpress flatpress/flatpress --set deployment.replicas=5,ingress.hostname=flatpress.mydomain.com
 ```
 
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart. For example:
 
 ```bash
-helm install flatpress charts.example.com/flatpress -f values.yaml
+helm install flatpress flatpress/flatpress -f values.yaml
 ```
 
 ## Docker Image
@@ -67,7 +67,7 @@ This will build the Docker image and tag it as example/flatpress:latest.
 To upgrade the chart, use the helm upgrade command:
 
 ```bash
-helm upgrade flatpress charts.example.com/flatpress
+helm upgrade flatpress flatpress/flatpress
 ```
 
 ## Uninstalling
