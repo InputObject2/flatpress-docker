@@ -39,6 +39,7 @@ The following table lists the configurable parameters of the Flatpress chart and
 | `ingress.enabled`                       | Enable Ingress resource                                | `false`                                      |
 | `ingress.hostname`                      | Hostname for the Ingress resource                      | `flatpress.example.com`                     |
 | `ingress.annotations`                   | Ingress annotations                                    | `{}`                                         |
+| `persistence.enabled`                   | Enable persistente volume claime                       | `false`                                      |
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example, to specify the number of replicas and the hostname for the Ingress resource:
 
