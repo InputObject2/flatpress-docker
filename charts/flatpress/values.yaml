@@ -21,4 +21,4 @@ service:
   name: flatpress
 
 persistence:
-  enabled: true
+  enabled: false
