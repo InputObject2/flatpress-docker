@@ -4,9 +4,9 @@ kind: Ingress
 metadata:
   name: flatpress-ingress
   annotations:
-{{- range $key, $value := .Values.ingress.annotations }}
-    {{ $key }}: {{ $value }}
-{{- end }}
+  {{- range $key, $value := .Values.ingress.annotations }}
+    {{ $key }}: "{{ $value }}"
+  {{- end }}
 spec:
   tls:
   - hosts:
@@ -17,7 +17,10 @@ spec:
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: flatpress
-          servicePort: 8080
+          service: 
+            name: {{ .Values.service.name }}
+            port: 
+              number: 8080
 {{- end }}

@@ -33,8 +33,12 @@ RUN a2enmod rewrite
 # Install the PHP gdlib extension
 RUN apt-get update && apt-get install -y libgd-dev && docker-php-ext-configure gd --with-freetype --with-jpeg && docker-php-ext-install gd
 
+# Purge the previous apache2 config
+RUN rm /etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-available/000-default.conf
+RUN sed -i "s/Listen 80/Listen 8080/g" /etc/apache2/ports.conf
+
 # Copy the Apache configuration file
-COPY apache.conf /etc/apache2/sites-available/flatpress.conf
+COPY httpd.conf /etc/apache2/sites-available/flatpress.conf
 
 # Enable the Apache configuration file
 RUN a2ensite flatpress.conf
