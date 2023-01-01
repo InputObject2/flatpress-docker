@@ -1,0 +1,15 @@
+apiVersion: v1
+entries:
+  flatpress:
+  - apiVersion: v1
+    appVersion: 1.0.0
+    created: "2023-01-01T16:57:40.537454973Z"
+    description: A lightweight blogging engine
+    digest: fc58a8c99577948acc7eba9619b785884e4a57593f3f78fb95072428f890af08
+    maintainers:
+    - name: InputObject2
+    name: flatpress
+    urls:
+    - https://github.com/InputObject2/flatpress-docker/releases/download/flatpress-1.0.6/flatpress-1.0.6.tgz
+    version: 1.0.6
+generated: "2023-01-01T16:57:40.537480574Z"
