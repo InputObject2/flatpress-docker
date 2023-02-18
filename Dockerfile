@@ -31,7 +31,7 @@ RUN chown -R ci:ci /var/www/html
 RUN a2enmod rewrite
 
 # Install the PHP gdlib extension
-RUN apt-get update && apt-get install -y libgd-dev && docker-php-ext-configure gd --with-freetype --with-jpeg && docker-php-ext-install gd
+RUN apt-get update && apt-get install -y sendmail libgd-dev && docker-php-ext-configure gd --with-freetype --with-jpeg && docker-php-ext-install gd
 
 # Purge the previous apache2 config
 RUN rm /etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-available/000-default.conf
